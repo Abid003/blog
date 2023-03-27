@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('fontend.index');
-});
+use App\Http\Controllers\HomeController;
+
+Route::get('/',[HomeController::class, 'userindex']);
 
 Route::get('/about', function () {
     return view('fontend.about');
@@ -29,3 +29,7 @@ Route::get('/contact', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/slider',[HomeController::class, 'slider']);
+
+Route::post('/add',[HomeController::class, 'add']);
